@@ -23,12 +23,12 @@ namespace DuoChip.Controllers.Parsers
                 var costNode = x.SelectNodes("*/*/div[@class='denoPrice']");
 
                 decimal? cost = null;
-                uint? days = null;
+                string days = null;
 
                 if (costNode != null)
                 {
                     cost = Convert.ToDecimal(costNode.First().FirstChild.InnerText, format);
-                    days = 0;
+                    days = "";
                 }
 
                 var name = nameNode.FirstChild.InnerText;

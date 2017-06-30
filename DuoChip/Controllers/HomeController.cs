@@ -25,6 +25,7 @@ namespace DuoChip.Controllers
             list.Add(Product.SampleProductThree());
             */
             list.AddRange(BelChipSearcher.search(query));
+            list.AddRange(RuChipDipSearcher.search(query));
             return View(list);
         }
 

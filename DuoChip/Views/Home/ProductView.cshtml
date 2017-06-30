@@ -35,19 +35,19 @@ else
 }
 
 
-@helper PrintDeliver(uint? days)
+@helper PrintDeliver(string days)
 {
 if (days == null)
 {
         <span class="item__avail_order">По запросу</span>
 }
-else if (days == 0)
+else if (days == "")
 {
         <span class="item__avail_available">На складе</span>
 }
 else
 {
-        <span class="item__avail_awaiting">@days дней</span>
+        <span class="item__avail_awaiting">@days</span>
     }
 
 

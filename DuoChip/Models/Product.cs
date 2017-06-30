@@ -9,12 +9,12 @@ namespace DuoChip.Models
     {
         public string Name { get; }
         public decimal? Cost { get; }
-        public uint? DaysToDeliver { get; }
+        public string DaysToDeliver { get; }
         public Dictionary<string,string> Characteristics { get; }
         public string ProductLink { get; }
         public string PictureLink { get; }
 
-        public Product(string name, decimal? cost, uint? daysToDeliver, Dictionary<string, string> characteristics,string productLink, string pictureLink)
+        public Product(string name, decimal? cost, string daysToDeliver, Dictionary<string, string> characteristics,string productLink, string pictureLink)
         {
             Name = name;
             Cost = cost;
@@ -45,7 +45,7 @@ namespace DuoChip.Models
             var pict = "http://lib.chipdip.ru/540/DOC001540661.jpg";
             var prod = "https://www.ru-chipdip.by/product/zh103-135";
 
-            return new Product("Термопредохранитель", 0.65m, 0, dict, prod, pict);
+            return new Product("Термопредохранитель", 0.65m, "", dict, prod, pict);
         }
         public static Product SampleProductThree()
         {
@@ -57,7 +57,7 @@ namespace DuoChip.Models
             var pict = "http://lib.chipdip.ru/540/DOC001540661.jpg";
             var prod = "https://www.ru-chipdip.by/product/zh103-135";
 
-            return new Product("Термопредохранитель", 0.65m, 5, dict, prod, pict);
+            return new Product("Термопредохранитель", 0.65m, "3 дня", dict, prod, pict);
         }
 
     }
