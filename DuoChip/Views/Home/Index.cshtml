@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Поиск радиодеталей";
+}
+@model IEnumerable<DuoChip.Models.Product>
+<div class="jumbotron">
+    <h1>Поиск радиодеталей</h1>
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <label>Имя: </label> @Html.TextBox("query")
+        <input type="submit" name="operation" value="Get Result" />
+    }
+</div>
+
+<div class="row">
+    @if (Model != null)
+    {
+        <table class="itemlist itemlist_main" id="itemlist">
+         @foreach (var x in Model)
+         {
+            @Html.Partial("ProductView", x);
+         } 
+        </table>
+    }
+</div>

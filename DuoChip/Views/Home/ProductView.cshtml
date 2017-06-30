@@ -1,0 +1,54 @@
+﻿@model DuoChip.Models.Product
+
+
+    <tr class="with-hover">
+        <td class="h_name">
+            <div class="name">
+                <a class="link" href="@Model.ProductLink">@Model.Name</a>
+                <div class="pps">
+                    <div class="av_w2"><span class="item__avail_available">Со склада</span></div>
+                    @foreach (var x in Model.Characteristics)
+                    {
+                    <div>@x.Key:&nbsp;<span class="itemlist_pval">@x.Value</span></div>
+                    }
+                </div>
+            </div>
+        </td>
+        <td class="img">
+            <img src="@Model.PictureLink" />
+        </td>
+        <td class="h_av nw"><div class="av_w">@PrintDeliver(Model.DaysToDeliver)</div></td>
+        <td class="h_pr nw">
+            <span class="price_mr">@PrintCost(Model.Cost)</span>
+        </td>
+    </tr>
+
+@helper PrintCost(decimal? cost) {
+if (cost == null)
+{
+        <span class="price_mr">Цена по запросу</span>
+}
+else
+{
+        <span class="price_mr">@cost BYN</span>
+}
+}
+
+
+@helper PrintDeliver(uint? days)
+{
+if (days == null)
+{
+        <span class="item__avail_order">По запросу</span>
+}
+else if (days == 0)
+{
+        <span class="item__avail_available">На складе</span>
+}
+else
+{
+        <span class="item__avail_awaiting">@days дней</span>
+    }
+
+
+}
