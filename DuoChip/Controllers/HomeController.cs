@@ -14,19 +14,18 @@ namespace DuoChip.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string query)
+        public ActionResult Index(string text)
         {
-            var list = new List<Product>();/*
-            list.Add(Product.SampleProductOne());
-            list.Add(Product.SampleProductTwo());
-            list.Add(Product.SampleProductThree());
-            list.Add(Product.SampleProductOne());
-            list.Add(Product.SampleProductTwo());
-            list.Add(Product.SampleProductThree());
-            */
-            list.AddRange(BelChipSearcher.search(query));
-            list.AddRange(RuChipDipSearcher.search(query));
-            return View(list);
+            var list = new List<Product>();
+
+            //list.Add(Product.SampleProductOne());
+            //list.Add(Product.SampleProductTwo());
+            //list.Add(Product.SampleProductThree());
+
+
+            list.AddRange(BelChipSearcher.search(text));
+            list.AddRange(RuChipDipSearcher.search(text));
+            return PartialView("AllProductsView",list);
         }
 
 

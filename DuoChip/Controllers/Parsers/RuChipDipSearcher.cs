@@ -18,10 +18,13 @@ namespace DuoChip.Controllers.Parsers
             var list = new List<Product>();
             while (true)
             {
-                var document = web.Load(url + idx);
+                var address = url + idx;
+                var document = web.Load(address);
                 if (web.StatusCode != System.Net.HttpStatusCode.OK) break;
+                
                 idx++;
                 var nodes = document.DocumentNode.SelectNodes("//a[@class='link group-header']");
+                if(nodes!=null)
                 foreach (var x in nodes)
                 {
                     list.AddRange(processCat(x.Attributes["href"].Value));
@@ -66,8 +69,8 @@ namespace DuoChip.Controllers.Parsers
             {
                 avail = null;
             }
-
-            var cost = Convert.ToDecimal(priceNode.InnerText,format);
+            var cost_str = priceNode.InnerText.Replace(" ","");
+            var cost = Convert.ToDecimal(cost_str,format);
             var pictureLink = imageNode.Attributes["src"].Value;
             var productLink = site + prodNode.Attributes["href"].Value;
             var name = nameNode.InnerText;

@@ -16,6 +16,7 @@ namespace DuoChip.Controllers.Parsers
             var list = new List<Product>();
             HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlWeb().Load(url);
             var nodes = document.DocumentNode.SelectNodes("//div[@class='cat-item']");
+            if(nodes!=null)
             foreach (var x in nodes)
             {
                 var nameNode = x.SelectNodes("h3/a").First();
