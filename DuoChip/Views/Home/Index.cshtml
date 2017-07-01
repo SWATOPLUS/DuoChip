@@ -5,19 +5,34 @@
 <div class="jumbotron">
     <h1>Поиск радиодеталей</h1>
     @using (Ajax.BeginForm("Index", new AjaxOptions
-    {
-        UpdateTargetId = "res-list",
-        LoadingElementId = "loading",
-        LoadingElementDuration = 1000
+        {
+            UpdateTargetId = "res-list",
+            OnBegin = "onReqestBegin",
+            OnComplete = "onReqestEnd"
+
+
     }))
     {
         <label>Имя: </label> @Html.TextBox("text")
         <input type="submit" name="operation" value="Get Result" />
     }
 </div>
-<div align="center" id="loading" style="display:none; color:Red; font-weight:bold;">
-    <img align="middle" height="200" src="http://gabrielnedelcu.com/wp-content/themes/gn-dcd/images/spinner.gif" />
+<div align="center">
+    <div id="loading-bar" style="display:none; color:Red; font-weight:bold;">
+        <h2>Загрузка</h2>
+        <img align="middle" height="200" src="http://gabrielnedelcu.com/wp-content/themes/gn-dcd/images/spinner.gif" />
+    </div>
 </div>
+<script language="javascript">
+    function onReqestBegin() {
+        document.getElementById("loading-bar").style.display = 'block';
+        document.getElementById("res-list").style.display = 'none';
+    }
+    function onReqestEnd() {
+        document.getElementById("loading-bar").style.display = 'none';
+        document.getElementById("res-list").style.display = 'block';
+    }
+</script>
 
 <div id="res-list"></div>
 

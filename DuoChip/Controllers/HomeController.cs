@@ -16,6 +16,7 @@ namespace DuoChip.Controllers
         [HttpPost]
         public ActionResult Index(string text)
         {
+            if (text.Replace(" ", "") == "")
             var list = new List<Product>();
 
             //list.Add(Product.SampleProductOne());
