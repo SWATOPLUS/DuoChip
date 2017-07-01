@@ -1,0 +1,117 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 1%;
+}
+
+input[type="text"] {
+    border-radius: 20px;
+    border: 2px solid black;
+    height: 45px;
+    font-size: 16pt;
+    padding-left: 1%;
+    margin-top: 2%;
+}
+
+input[type="submit"] {
+    border-radius: 20px;
+    background-color:silver ;
+    color: white;
+    font-size: 14pt;
+    border: 1px solid transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16pt;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+#elements {
+    margin-top: 3%;
+}
+
+.elem img {
+    width: 100%;
+}
+
+.elem {
+    padding: 1%;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 1%;
+
+}
+
+.elem p {
+    font-size: 16pt;
+}
+
+.name {
+    font-weight: bold;
+    margin-top: 3%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.shadow > .avail {
+    font-size: 12pt;
+}
+
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.shadow {
+    position:relative;
+    -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+       -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow:0 1px 2px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.shadow:before, .shadow:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 10px rgba(0,0,0,0.3);
+    -moz-box-shadow:0 0 10px rgba(0,0,0,0.3);
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+    top:0;
+    bottom:0;
+    left:1px;
+    right:1px;
+
+}
+.shadow:after
+{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+       -moz-transform:skew(8deg) rotate(3deg);
+        -ms-transform:skew(8deg) rotate(3deg);
+         -o-transform:skew(8deg) rotate(3deg);
+            transform:skew(8deg) rotate(3deg);
+}
+
+.shadow > .itemlist_pval {
+    display: inline-block;
+    text-align: justify;
+    font-size: 12pt;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+

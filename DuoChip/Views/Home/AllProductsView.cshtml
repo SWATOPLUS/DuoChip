@@ -11,10 +11,10 @@
     {
         <h2>Найдено результатов @count</h2>
     }
-    <table class="itemlist itemlist_main" id="itemlist">
-        @foreach (var x in Model)
-        {
+        <table class="itemlist itemlist_main" id="itemlist">
+         @foreach (var x in Model)
+         {
             @Html.Partial("ProductView", x);
-        }
-    </table>
+         } 
+        </table>
 }

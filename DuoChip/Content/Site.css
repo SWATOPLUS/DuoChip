@@ -28,7 +28,7 @@ textarea {
 
 klllllllllllll
 */
-
+/*
 html,body,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,p,blockquote,form,fieldset,legend,table,td,th {
  margin:0;
  padding:0
@@ -39,7 +39,6 @@ body {
  font-weight:normal;
  color:#000;
  min-width:980px;
- background-color:#c3e0ff
 }
 a {
  outline:none
@@ -1625,7 +1624,7 @@ ul.form_errors_list {
 /*lllllllllll*/
 
 
-
+/*
 .a2c_wrap,.a2cw_wrap {
  min-width:7.6em;
  text-align:center
@@ -1683,10 +1682,10 @@ ul.form_errors_list {
 .input__decrementer {
  border-right:0 none;
  border-radius:3px 0 0 3px
-}
+}*/
 /*******************************/
 
-
+/*
 
 .filter-and-products {
  width:100%
@@ -1989,11 +1988,11 @@ ul.form_errors_list {
  text-align:center;
  font-weight:normal
 }
-
+*/
 /******************************/
 
 
-
+/*
 .item__avail {
  display:inline-block;
  width:100%
@@ -2031,11 +2030,11 @@ ul.form_errors_list {
 }
 .item__avail_delivery:before {
  background-position:-66px -105px
-}
+}*/
 
 /*********************/
 
-
+/*
 
 .itemlist {
  width:100%
@@ -2167,12 +2166,12 @@ ul.form_errors_list {
 }
 .itemlist td.group-header-wrap {
  padding:1.5em 0
-}
+}*/
 
 
 
 /*************************/
-
+/*
 
 .item__price,.item__price-old {
  display:inline-block;
@@ -2193,11 +2192,11 @@ ul.form_errors_list {
  position:absolute;
  top:0;
  width:100%
-}
+}*/
 
 /*************************/
 
-
+/*
 .group-desc {
  padding:40px 25px 10px 0
 }
@@ -2213,14 +2212,14 @@ ul.form_errors_list {
 .catalog_fix {
  padding-top:.3em
 }
-
+*/
 /*******************/
 
 
 
 
 
-
+/*
 
 
 
@@ -2249,15 +2248,15 @@ body.std_by {
 }
 .fancyConfirm .with-icon_ru:after {
  bottom:2px
-}
+}*/
 
 
 
 /**************/
 
 
-
+/*
 .fancybox-margin {
  margin-right:17px;
-}
+}*/
 
