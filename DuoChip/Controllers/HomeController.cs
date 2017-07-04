@@ -13,10 +13,10 @@ namespace DuoChip.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult Index(string text)
+        [HttpGet]
+        public ActionResult Search(string text)
         {
-            if (text.Replace(" ", "") == "")
+            if (text==null || text.Replace(" ", "") == "")
                 return new EmptyResult();
             var list = new List<Product>();
 

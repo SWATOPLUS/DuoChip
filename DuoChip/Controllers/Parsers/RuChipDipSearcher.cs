@@ -21,7 +21,11 @@ namespace DuoChip.Controllers.Parsers
                 var address = url + idx;
                 var document = web.Load(address);
                 if (web.StatusCode != System.Net.HttpStatusCode.OK) break;
-                
+                var notFoundElement = document.DocumentNode.SelectNodes("//span[@class='bc__item']");
+                if (null != notFoundElement) {
+                    var node = notFoundElement.First();
+                    if (node.InnerText == "Не найдено") break;
+                }
                 idx++;
                 var nodes = document.DocumentNode.SelectNodes("//a[@class='link group-header']");
                 if(nodes!=null)
