@@ -3,13 +3,13 @@
             <div class="elem col-md-3 ">
                 <div class="shadow">
                     <img src="@Model.PictureLink">
-                    <a class="link" href="@Model.ProductLink">@Model.Name</a>
-                   <p class="itemlist_pval">
+                    <a class="link" href="@Model.ProductLink">@Html.Raw(Model.Name)</a>
+                   @*<p class="itemlist_pval">
                      @foreach (var x in Model.Characteristics)
                     {
                         <span>@x.Key: <span>@x.Value</span></span>
                     }
-                       </p>
+                       </p>*@
                     <p class="price"><b>@PrintCost(Model.Cost)</b></p>
                     <p class="avail">@PrintDeliver(Model.DaysToDeliver)</p>                   
                 </div>

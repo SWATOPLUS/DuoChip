@@ -115,3 +115,53 @@ a {
     padding-right: 3%;
 }
 
+
+.itemlist .price_mr {
+ margin-right:1em
+}
+
+
+.item__avail_available {
+ text-align:left;
+ color:#20a36d
+}
+.item__avail_available:before,.item__avail_awaiting:before,.item__avail_order:before,.item__avail_delivery:before {
+ display:inline-block;
+ content:'';
+ width:17px;
+ height:13px;
+ margin-right:2px
+}
+.item__avail_available:before {
+ background-position:-66px -125px
+}
+.item__avail_awaiting {
+ text-align:left;
+ color:#cc7706
+}
+.item__avail_awaiting:before {
+ background-position:-150px -148px
+}
+.item__avail_order {
+ text-align:left;
+ color:#607080
+}
+.item__avail_order:before {
+ background-position:-129px -148px
+}
+.item__avail {
+ display:inline-block;
+ width:100%
+}
+
+.item__avail_delivery {
+ color:#20a36d
+}
+.item__avail_delivery:before {
+ background-position:-66px -105px
+}
+
+.sprite,.sprite-b:before,.button__decorate,.download__link:before,.password-ctrl,.with-icon:after,.with-icon1:after,.with-icon2:after,.popup_decorated:after,.rate,.item__avail_available:before,.item__avail_awaiting:before,.item__avail_order:before,.item__avail_delivery:before {
+ background-image:url('https://static.chipdip.ru/content/images/icons10.png');
+ background-repeat:no-repeat
+}
