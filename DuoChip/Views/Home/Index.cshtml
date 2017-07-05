@@ -4,17 +4,11 @@
 @model IEnumerable<DuoChip.Models.Product>
 <div class="jumbotron">
     <h1>Поиск радиодеталей</h1>
-    @using (Ajax.BeginForm("Search", new AjaxOptions
-    {
-        UpdateTargetId = "res-list",
-        OnBegin = "onReqestBegin",
-        OnComplete = "onReqestEnd",
-        HttpMethod = "get"
-    }))
+    @using (Ajax.BeginForm("Search", DuoChip.Controllers.Helpers.ViewConst.SearchOptions))
     {
         <label>Имя: </label> @Html.TextBox("text")
         <input type="submit" name="operation" value="Get Result" />
-        @Html.Hidden("page", 0);
+        @Html.Hidden("page", 1);
     }
 </div>
 <div align="center">
@@ -24,6 +18,9 @@
     </div>
 </div>
 <script language="javascript">
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
     function onReqestBegin() {
         document.getElementById("loading-bar").style.display = 'block';
         document.getElementById("res-list").style.display = 'none';
@@ -31,6 +28,13 @@
     function onReqestEnd() {
         document.getElementById("loading-bar").style.display = 'none';
         document.getElementById("res-list").style.display = 'block';
+        
+        $(document).ready(function () {
+            setEqualHeight($(".shadow"));
+
+        });
+        setEqualHeight($(".shadow"));
+        sleep(2000);
         setEqualHeight($(".shadow"));
     }
 </script>

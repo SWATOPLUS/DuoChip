@@ -14,7 +14,7 @@ namespace DuoChip.Controllers
         {
             return View();
         }
-        public ActionResult Search(string text, string page)
+        public ActionResult Search(string text, string page,string operation)
         {
             if (string.IsNullOrWhiteSpace(text))
                 text = Request.QueryString["text"];
@@ -49,7 +49,10 @@ namespace DuoChip.Controllers
             {
                 ViewBag.Page = req_page;
                 ViewBag.Text = text;
+                ViewBag.Processing = cache.IsProcessing;
                 ViewBag.LastPage = cache.LastPage;
+                if (Request.QueryString["operation"]!=null || operation!=null)
+                    return PartialView("AjaxPageProductsView", list);
                 return PartialView("PageProductsView", list);
             }
             return PartialView("AllProductsView", list);

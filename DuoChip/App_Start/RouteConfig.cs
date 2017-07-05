@@ -15,8 +15,8 @@ namespace DuoChip
 
             routes.MapRoute(
                 name: "Search",
-                url: "Home/Search/{text}/{page}",
-                defaults: new { controller = "Home", action = "Search", text = "", page = "0" }
+                url: "Home/Search/{text}/{page}/{operation}",
+                defaults: new { controller = "Home", action = "Search", text = "", page = "0", operation=UrlParameter.Optional }
 );
 
             routes.MapRoute(

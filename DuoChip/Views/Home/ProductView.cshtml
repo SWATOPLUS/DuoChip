@@ -1,8 +1,8 @@
 ﻿@model DuoChip.Models.Product
        
-            <div class="elem col-md-3 ">
+            <div class="elem col-md-3">
                 <div class="shadow">
-                    <img src="@Model.PictureLink">
+                    <img src="@Model.PictureLink" height="250" width="250">
                     <a class="link" href="@Model.ProductLink">@Html.Raw(Model.Name)</a>
                    @*<p class="itemlist_pval">
                      @foreach (var x in Model.Characteristics)

@@ -23,8 +23,12 @@ namespace DuoChip.Controllers.Helpers
                 return x / items_per_page + (x % items_per_page == 0 ? 0 : 1);
             }
         }
-            
-       
+        public bool IsProcessing
+        {
+            get {
+                return thread.IsAlive;
+            }
+        }          
 
         public SearchCache(string text) {
             this.text = text;

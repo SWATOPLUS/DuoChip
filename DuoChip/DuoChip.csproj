@@ -125,6 +125,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Helpers\SearchCache.cs" />
+    <Compile Include="Controllers\Helpers\ViewConst.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Parsers\RuChipDipSearcher.cs" />
     <Compile Include="Controllers\Parsers\BelChipSearcher.cs" />
@@ -174,6 +175,7 @@
     <Content Include="Views\Home\ProductView.cshtml" />
     <Content Include="Views\Home\AllProductsView.cshtml" />
     <Content Include="Views\Home\PageProductsView.cshtml" />
+    <Content Include="Views\Home\AjaxPageProductsView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DuoChip.Models.Product>
+
+@if (Model != null)
+{
+    var count = Model.Count();
+    if (count == 0)
+    {
+        if (ViewBag.Page == 1)
+        {
+            <h2>Ничего не найдено</h2>
+        }
+        else
+        {
+            <h2>Страница пуста</h2>
+            @Ajax.ActionLink("Назад", "Search",
+         new { page = (ViewBag.LastPage).ToString(), text = ViewBag.Text, operation = "ajax" },
+         DuoChip.Controllers.Helpers.ViewConst.SearchOptions)
+        }
+    }
+    else
+    {
+        <table class="itemlist itemlist_main" id="itemlist" style="display:block">
+        @foreach (var x in Model)
+        {
+            @Html.Partial("ProductView", x);
+        } 
+        </table>
+        <div style="display:block">
+            @if (ViewBag.Page != 1)
+            {
+                @Ajax.ActionLink("Назад", "Search",
+     new { page = (ViewBag.Page - 1).ToString(), text = ViewBag.Text, operation = "ajax" },
+     DuoChip.Controllers.Helpers.ViewConst.SearchOptions)
+                @Html.Raw("&nbsp;")
+            }
+            @if (ViewBag.Processing || ViewBag.Page != ViewBag.LastPage)
+            {
+            @Ajax.ActionLink("Вперед", "Search",
+                             new { page = (ViewBag.Page + 1).ToString(), text = ViewBag.Text, operation = "ajax" },
+                             DuoChip.Controllers.Helpers.ViewConst.SearchOptions)
+            }
+        </div>
+    }
+
+}
