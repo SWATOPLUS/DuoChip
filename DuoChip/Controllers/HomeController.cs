@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DuoChip.Models;
 using DuoChip.Controllers.Parsers;
+using DuoChip.Controllers.Helpers;
 namespace DuoChip.Controllers
 {
     public class HomeController : Controller
@@ -13,22 +14,48 @@ namespace DuoChip.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Search(string text)
+        public ActionResult Search(string text, string page)
         {
-            if (text==null || text.Replace(" ", "") == "")
+            if (string.IsNullOrWhiteSpace(text))
+                text = Request.QueryString["text"];
+
+            if (string.IsNullOrWhiteSpace(page) || page == "0")
+                page = Request.QueryString["page"];
+
+            if (string.IsNullOrWhiteSpace(text))
                 return new EmptyResult();
-            var list = new List<Product>();
+            int req_page;
+            try
+            {
+                req_page = Convert.ToInt32(page);
+            }
+            catch (Exception)
+            {
+                req_page = 0;
+            }
 
-            //list.Add(Product.SampleProductOne());
-            //list.Add(Product.SampleProductTwo());
-            //list.Add(Product.SampleProductThree());
-
-
-            list.AddRange(BelChipSearcher.search(text));
-            list.AddRange(RuChipDipSearcher.search(text));
-            return PartialView("AllProductsView",list);
+            SearchCache cache;
+            if (globalCache.ContainsKey(text))
+            {
+                cache = globalCache[text];
+            }
+            else
+            {
+                cache = new SearchCache(text);
+                globalCache.TryAdd(text, cache);
+            }
+            var list = cache.GetPage(req_page);
+            if (req_page > 0)
+            {
+                ViewBag.Page = req_page;
+                ViewBag.Text = text;
+                ViewBag.LastPage = cache.LastPage;
+                return PartialView("PageProductsView", list);
+            }
+            return PartialView("AllProductsView", list);
         }
+
+        private static ConcurrentDictionary<string, SearchCache> globalCache = new ConcurrentDictionary<string, SearchCache>();
 
 
         public ActionResult About()

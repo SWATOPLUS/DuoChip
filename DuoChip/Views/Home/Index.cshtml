@@ -5,17 +5,16 @@
 <div class="jumbotron">
     <h1>Поиск радиодеталей</h1>
     @using (Ajax.BeginForm("Search", new AjaxOptions
-        {
-            UpdateTargetId = "res-list",
-            OnBegin = "onReqestBegin",
-            OnComplete = "onReqestEnd",
-            HttpMethod = "get"
-
-
+    {
+        UpdateTargetId = "res-list",
+        OnBegin = "onReqestBegin",
+        OnComplete = "onReqestEnd",
+        HttpMethod = "get"
     }))
     {
         <label>Имя: </label> @Html.TextBox("text")
         <input type="submit" name="operation" value="Get Result" />
+        @Html.Hidden("page", 0);
     }
 </div>
 <div align="center">
